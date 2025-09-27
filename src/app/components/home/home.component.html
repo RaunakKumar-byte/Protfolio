@@ -1,0 +1,135 @@
+<section class="hero-section" id="home">
+  <app-particles></app-particles>
+  
+  <div class="hero-content">
+    <div class="container">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+          <div class="hero-text">
+            <h1 class="hero-title">
+              <span class="greeting">Hello, I'm</span>
+              <span class="name" #nameText>Raunak Kumar</span>
+              <span class="title" #titleText>Full-Stack Developer</span>
+            </h1>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="300">
+              Passionate B.Tech student specializing in Computer Vision, Machine Learning, 
+              and IoT. Building innovative solutions with modern web technologies.
+            </p>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="500">
+              <a routerLink="/contact" class="btn btn-primary btn-lg me-3">
+                <i class="fas fa-envelope me-2"></i>Get In Touch
+              </a>
+              <a href="/assets/resume.pdf" class="btn btn-outline-primary btn-lg" download>
+                <i class="fas fa-download me-2"></i>Download Resume
+              </a>
+            </div>
+            <div class="social-links" data-aos="fade-up" data-aos-delay="700">
+              <a href="https://github.com/RaunakKumar-byte" target="_blank" class="social-link">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://linkedin.com/in/raunak-singh-354839287" target="_blank" class="social-link">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="mailto:vtu24373@veltech.edu.in" class="social-link">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+          <div class="hero-image">
+            <div class="profile-card" #profileCard>
+              <div class="profile-image">
+                <img src="/assets/images/profile.jpg" alt="Raunak Kumar" class="img-fluid">
+                <div class="profile-overlay">
+                  <div class="profile-info">
+                    <h3>Raunak Kumar</h3>
+                    <p>B.Tech Student</p>
+                    <div class="contact-info">
+                      <p><i class="fas fa-envelope"></i> vtu24373@veltech.edu.in</p>
+                      <p><i class="fas fa-phone"></i> +91 7640248488</p>
+                      <p><i class="fas fa-map-marker-alt"></i> Chennai, India</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1000">
+    <div class="scroll-mouse">
+      <div class="scroll-wheel"></div>
+    </div>
+    <p>Scroll Down</p>
+  </div>
+</section>
+
+<!-- Quick Stats Section -->
+<section class="stats-section" data-aos="fade-up">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 mb-4" *ngFor="let stat of stats; let i = index" 
+           data-aos="zoom-in" [attr.data-aos-delay]="i * 100">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i [class]="stat.icon"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number" #statNumber>{{ stat.number }}</h3>
+            <p class="stat-label">{{ stat.label }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Projects Preview -->
+<section class="featured-projects-section">
+  <div class="container">
+    <div class="section-header text-center" data-aos="fade-up">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">Some of my recent work</p>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let project of featuredProjects; let i = index"
+           data-aos="flip-left" [attr.data-aos-delay]="i * 200">
+        <div class="project-card" (mouseenter)="onProjectHover($event)" (mouseleave)="onProjectLeave($event)">
+          <div class="project-image">
+            <img [src]="project.image" [alt]="project.title" class="img-fluid">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a [href]="project.github" target="_blank" class="project-link">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a [href]="project.demo" target="_blank" class="project-link">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h4 class="project-title">{{ project.title }}</h4>
+            <p class="project-description">{{ project.description }}</p>
+            <div class="project-tech">
+              <span class="tech-tag" *ngFor="let tech of project.technologies">{{ tech }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center" data-aos="fade-up" data-aos-delay="600">
+      <a routerLink="/projects" class="btn btn-outline-primary btn-lg">
+        View All Projects <i class="fas fa-arrow-right ms-2"></i>
+      </a>
+    </div>
+  </div>
+</section>

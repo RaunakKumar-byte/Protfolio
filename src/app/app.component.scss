@@ -1,0 +1,36 @@
+.app-container {
+  min-height: 100vh;
+  transition: all 0.3s ease;
+  
+  &.dark-theme {
+    background-color: #0a0a0a;
+    color: #ffffff;
+  }
+}
+
+.main-content {
+  padding-top: 80px;
+}
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}

@@ -1,0 +1,35 @@
+<div class="experience-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">My professional journey and career milestones</p>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-12">
+        <div class="timeline">
+          <div class="timeline-item" *ngFor="let exp of experiences">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="experience-card">
+                <div class="experience-header">
+                  <h3>{{ exp.title }}</h3>
+                  <h4>{{ exp.company }}</h4>
+                  <span class="period">{{ exp.period }}</span>
+                </div>
+                <div class="experience-body">
+                  <p>{{ exp.description }}</p>
+                  <div class="technologies">
+                    <span *ngFor="let tech of exp.technologies" class="tech-tag">{{ tech }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

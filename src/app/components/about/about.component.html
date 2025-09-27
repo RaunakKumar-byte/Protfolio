@@ -1,0 +1,143 @@
+<section class="about-hero">
+  <div class="container">
+    <div class="text-center" data-aos="fade-up">
+      <div class="profile-image-container" data-aos="zoom-in" data-aos-delay="200">
+        <img src="/assets/images/profile.jpg" alt="Raunak Kumar" class="profile-image">
+        <div class="profile-ring"></div>
+      </div>
+      <h1 class="section-title" data-aos="fade-up" data-aos-delay="400">About Me</h1>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="600">
+        Get to know more about my journey and aspirations
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="about-content">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8" data-aos="fade-right">
+        <div class="about-text">
+          <h2 class="about-heading">Hi, I'm Raunak Kumar</h2>
+          <div class="about-paragraphs">
+            <p data-aos="fade-up" data-aos-delay="200">
+              I'm a passionate B.Tech student at Vel Tech Rangarajan Dr.Sagunthala R&D Institute of Science and Technology, 
+              specializing in full-stack development, Computer Vision, and Machine Learning. My journey in technology 
+              started with curiosity and has evolved into a deep passion for creating innovative solutions.
+            </p>
+            <p data-aos="fade-up" data-aos-delay="400">
+              I have hands-on experience in building web applications using modern technologies like Node.js, Express.js, 
+              MongoDB, and React. My projects range from mental health wellness systems to automated railway gate systems, 
+              showcasing my ability to work on diverse technological challenges.
+            </p>
+            <p data-aos="fade-up" data-aos-delay="600">
+              When I'm not coding, I enjoy participating in hackathons, exploring new technologies, and contributing to 
+              open-source projects. I believe in continuous learning and staying updated with the latest industry trends.
+            </p>
+          </div>
+          
+          <div class="skills-preview" data-aos="fade-up" data-aos-delay="800">
+            <h3>Core Competencies</h3>
+            <div class="skills-tags">
+              <span class="skill-tag" *ngFor="let skill of coreSkills; let i = index" 
+                    [style.animation-delay.ms]="i * 100">{{ skill }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4" data-aos="fade-left" data-aos-delay="400">
+        <div class="personal-info-card">
+          <h3>Personal Information</h3>
+          <div class="info-list">
+            <div class="info-item" *ngFor="let info of personalInfo; let i = index"
+                 data-aos="slide-left" [attr.data-aos-delay]="i * 100">
+              <div class="info-icon">
+                <i [class]="info.icon"></i>
+              </div>
+              <div class="info-content">
+                <span class="info-label">{{ info.label }}</span>
+                <span class="info-value">{{ info.value }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="education-section">
+  <div class="container">
+    <div class="section-header text-center" data-aos="fade-up">
+      <h2 class="section-title">Education Journey</h2>
+      <p class="section-subtitle">My academic background and achievements</p>
+    </div>
+    
+    <div class="education-timeline">
+      <div class="timeline-item" *ngFor="let edu of education; let i = index"
+           data-aos="fade-up" [attr.data-aos-delay]="i * 200">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-date">{{ edu.period }}</div>
+          <h3 class="timeline-title">{{ edu.degree }}</h3>
+          <h4 class="timeline-institution">{{ edu.institution }}</h4>
+          <p class="timeline-location">{{ edu.location }}</p>
+          <p class="timeline-description">{{ edu.description }}</p>
+          <div class="timeline-achievements" *ngIf="edu.achievements">
+            <h5>Key Achievements:</h5>
+            <ul>
+              <li *ngFor="let achievement of edu.achievements">{{ achievement }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="interests-section">
+  <div class="container">
+    <div class="section-header text-center" data-aos="fade-up">
+      <h2 class="section-title">Interests & Hobbies</h2>
+      <p class="section-subtitle">What I love to do in my free time</p>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-3 col-md-6 mb-4" *ngFor="let interest of interests; let i = index"
+           data-aos="flip-up" [attr.data-aos-delay]="i * 150">
+        <div class="interest-card">
+          <div class="interest-icon">
+            <i [class]="interest.icon"></i>
+          </div>
+          <h4 class="interest-title">{{ interest.title }}</h4>
+          <p class="interest-description">{{ interest.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values-section">
+  <div class="container">
+    <div class="section-header text-center" data-aos="fade-up">
+      <h2 class="section-title">My Values</h2>
+      <p class="section-subtitle">Principles that guide my work and life</p>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let value of values; let i = index"
+           data-aos="zoom-in" [attr.data-aos-delay]="i * 200">
+        <div class="value-card">
+          <div class="value-icon">
+            <i [class]="value.icon"></i>
+          </div>
+          <h4 class="value-title">{{ value.title }}</h4>
+          <p class="value-description">{{ value.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

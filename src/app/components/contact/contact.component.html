@@ -1,0 +1,107 @@
+<div class="contact-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">I'm always interested in new opportunities and collaborations</p>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="contact-form-container">
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="name" class="form-label">Name *</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="name" 
+                  formControlName="name"
+                  [class.is-invalid]="f['name'].invalid && (f['name'].dirty || f['name'].touched || isSubmitted)"
+                >
+                <div *ngIf="f['name'].invalid && (f['name'].dirty || f['name'].touched || isSubmitted)" class="invalid-feedback">
+                  <div *ngIf="f['name'].errors?.['required']">Name is required</div>
+                  <div *ngIf="f['name'].errors?.['minlength']">Name must be at least 2 characters</div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">Email *</label>
+                <input 
+                  type="email" 
+                  class="form-control" 
+                  id="email" 
+                  formControlName="email"
+                  [class.is-invalid]="f['email'].invalid && (f['email'].dirty || f['email'].touched || isSubmitted)"
+                >
+                <div *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched || isSubmitted)" class="invalid-feedback">
+                  <div *ngIf="f['email'].errors?.['required']">Email is required</div>
+                  <div *ngIf="f['email'].errors?.['email']">Please enter a valid email</div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="subject" class="form-label">Subject *</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                id="subject" 
+                formControlName="subject"
+                [class.is-invalid]="f['subject'].invalid && (f['subject'].dirty || f['subject'].touched || isSubmitted)"
+              >
+              <div *ngIf="f['subject'].invalid && (f['subject'].dirty || f['subject'].touched || isSubmitted)" class="invalid-feedback">
+                <div *ngIf="f['subject'].errors?.['required']">Subject is required</div>
+                <div *ngIf="f['subject'].errors?.['minlength']">Subject must be at least 5 characters</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message *</label>
+              <textarea 
+                class="form-control" 
+                id="message" 
+                rows="5" 
+                formControlName="message"
+                [class.is-invalid]="f['message'].invalid && (f['message'].dirty || f['message'].touched || isSubmitted)"
+              ></textarea>
+              <div *ngIf="f['message'].invalid && (f['message'].dirty || f['message'].touched || isSubmitted)" class="invalid-feedback">
+                <div *ngIf="f['message'].errors?.['required']">Message is required</div>
+                <div *ngIf="f['message'].errors?.['minlength']">Message must be at least 10 characters</div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg" [disabled]="contactForm.invalid">
+              <i class="fas fa-paper-plane me-2"></i>Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <div class="contact-items">
+            <div class="contact-item" *ngFor="let info of contactInfo">
+              <div class="contact-icon">
+                <i [class]="info.icon"></i>
+              </div>
+              <div class="contact-details">
+                <h4>{{ info.title }}</h4>
+                <a [href]="info.link">{{ info.value }}</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="social-links">
+            <h4>Follow Me</h4>
+            <div class="social-icons">
+              <a *ngFor="let social of socialLinks" [href]="social.link" target="_blank" class="social-link">
+                <i [class]="social.icon"></i>
+                <span>{{ social.name }}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
