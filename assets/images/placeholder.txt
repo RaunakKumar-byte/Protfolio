@@ -1,0 +1,5 @@
+This folder contains placeholder images for the portfolio.
+Please add your actual images here:
+- profile.jpg (your profile picture)
+- projects/ folder with project screenshots
+- certificates/ folder with certificate images
