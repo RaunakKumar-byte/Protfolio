@@ -13,36 +13,36 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('profileCard') profileCard!: ElementRef;
 
   stats = [
-    { icon: 'fas fa-calendar-alt', number: '2+', label: 'Years of Learning' },
-    { icon: 'fas fa-project-diagram', number: '5+', label: 'Projects Completed' },
-    { icon: 'fas fa-code', number: '8+', label: 'Technologies' },
-    { icon: 'fas fa-heart', number: '100%', label: 'Dedication' }
+    { icon: 'fas fa-calendar-alt', number: '3+', label: 'Years of Learning' },
+    { icon: 'fas fa-project-diagram', number: '8+', label: 'Projects Completed' },
+    { icon: 'fas fa-code', number: '15+', label: 'Technologies' },
+    { icon: 'fas fa-certificate', number: '7+', label: 'Certifications' }
   ];
 
   featuredProjects = [
     {
-      title: 'EarlyGuard - Disaster Relief System',
-      description: 'Crowdsourced disaster management and early warning system with IoT integration.',
-      image: '/assets/images/projects/earlyguard.jpg',
-      technologies: ['Node.js', 'MongoDB', 'IoT', 'Express.js'],
-      github: 'https://github.com/RaunakKumar-byte/disaster-relief-platform',
-      demo: 'https://disaster-relief-platform.onrender.com/'
-    },
-    {
-      title: 'AgriEcho - AI Assistant',
-      description: 'Offline-first PWA for farmers with AI-powered crop disease detection.',
-      image: '/assets/images/projects/agriecho.jpg',
-      technologies: ['TensorFlow', 'PWA', 'AR.js', 'Node.js'],
-      github: 'https://github.com/RaunakKumar-byte/AgriEcho3214',
-      demo: 'https://agriecho3214.onrender.com/'
-    },
-    {
-      title: 'Mindspace - Mental Health',
-      description: 'AI-driven mental health wellness system with emotion detection.',
-      image: '/assets/images/projects/mindspace.jpg',
-      technologies: ['OpenCV', 'TensorFlow', 'NLP', 'MongoDB'],
+      title: 'Automated Railway Gate System',
+      description: 'Raspberry Pi & Computer Vision system for automated railway crossing safety with IR sensors and motorized gates.',
+      image: '/assets/images/railway2.jpg',
+      technologies: ['Raspberry Pi', 'Python', 'OpenCV', 'Computer Vision'],
       github: 'https://github.com/RaunakKumar-byte',
       demo: '#'
+    },
+    {
+      title: 'Mindspace - Mental Health Wellness',
+      description: 'AI-driven mental health platform with emotion detection, mood tracking, and wellness support using Computer Vision & NLP.',
+      image: '/assets/images/projects/mindspace-logo.png',
+      technologies: ['Node.js', 'OpenCV', 'TensorFlow', 'MongoDB'],
+      github: 'https://github.com/RaunakKumar-byte',
+      demo: '#'
+    },
+    {
+      title: 'Plant Detection System',
+      description: 'AI-powered plant health monitoring and disease detection system with real-time analytics dashboard. Built during internship with comprehensive backend API and modern frontend.',
+      image: '/assets/images/projects/plant-detection.jpg',
+      technologies: ['Angular', 'Node.js', 'Express.js', 'MongoDB', 'AI/ML', 'Real-time Analytics'],
+      github: 'https://github.com/princeraj07m/Khetloom',
+      demo: 'https://khetloom.live'
     }
   ];
 

@@ -8,31 +8,37 @@ import { Component, OnInit } from '@angular/core';
 export class AboutComponent implements OnInit {
 
   coreSkills = [
-    'Full-Stack Development', 'Computer Vision', 'Machine Learning', 
-    'IoT Development', 'Problem Solving', 'Team Leadership'
+    'Full-Stack Development', 'Angular', 'Node.js', 'Express.js', 'MongoDB',
+    'Python', 'JavaScript', 'TypeScript', 'React.js', 'AI/ML', 
+    'Real-time Analytics', 'Bot Control Systems', 'Problem Solving', 'Team Leadership'
   ];
 
   personalInfo = [
     { icon: 'fas fa-user', label: 'Name', value: 'Raunak Kumar' },
-    { icon: 'fas fa-birthday-cake', label: 'Age', value: '19 years' },
+    { icon: 'fas fa-birthday-cake', label: 'Age', value: '20 years' },
     { icon: 'fas fa-map-marker-alt', label: 'Location', value: 'Chennai, India' },
     { icon: 'fas fa-envelope', label: 'Email', value: 'vtu24373@veltech.edu.in' },
     { icon: 'fas fa-phone', label: 'Phone', value: '+91 7640248488' },
-    { icon: 'fas fa-language', label: 'Languages', value: 'Hindi, English' }
+    { icon: 'fas fa-language', label: 'Languages', value: 'Hindi, English' },
+    { icon: 'fas fa-graduation-cap', label: 'Education', value: 'B.Tech CSE (3rd Year)' },
+    { icon: 'fas fa-university', label: 'University', value: 'Vel Tech Dr.RR Dr.SR University' }
   ];
 
   education = [
     {
       period: '2023 - Present',
-      degree: 'B.TECH',
-      institution: 'Vel Tech Rangarajan Dr.Sagunthala R&D Institute of Science and Technology',
+      degree: 'B.TECH Computer Science Engineering',
+      institution: 'Vel Tech Dr.RR Dr.SR University',
       location: 'Chennai, India',
-      description: 'Actively involved in technical and academic events. Participated in multiple national and inter-college hackathons, developing innovative tech solutions under tight deadlines.',
+      description: 'Actively involved in technical and academic events. Participated in multiple national and inter-college hackathons, developing innovative tech solutions under tight deadlines. Currently in 3rd year with strong focus on Full-Stack Development, AI/ML, and IoT.',
       achievements: [
-        'Participated in Smart India Hackathon',
-        'Won 3rd position in Project Idea Contest 2024',
+        'Participated in Smart India Hackathon (SIH)',
+        'Represented university in Hack Storm competition',
+        'Certificate of Excellence in DSA MasterMind',
         'Active member of Computer Society of India (CSI)',
-        'Completed multiple technical workshops and certifications'
+        'Completed multiple technical workshops and certifications',
+        'Built 8+ major projects including Railway Gate Automation',
+        'Successfully completed Full-Stack Development internships'
       ]
     },
     {
