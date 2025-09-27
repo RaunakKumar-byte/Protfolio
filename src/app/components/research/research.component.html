@@ -1,0 +1,82 @@
+<!-- Hero Section -->
+<section class="research-hero gradient-bg-4">
+  <div class="container">
+    <div class="row align-items-center min-vh-100">
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="hero-content">
+          <h1 class="hero-title gradient-text animate__animated animate__fadeInUp">
+            <i class="fas fa-microscope me-3"></i>
+            Research & Academic Work
+          </h1>
+          <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">
+            Exploring innovative solutions through academic research and scholarly work
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="hero-visual">
+          <div class="floating-icon">
+            <i class="fas fa-graduation-cap floating"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Research Projects -->
+<section class="research-projects-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title text-center" data-aos="fade-up">
+          <i class="fas fa-flask me-3"></i>
+          Research Projects
+        </h2>
+        <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="200">
+          Academic research and scholarly contributions
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 mb-4" *ngFor="let project of researchProjects; let i = index">
+        <div class="research-card glassmorphism hover-lift" 
+             data-aos="fade-up" 
+             [attr.data-aos-delay]="i * 200">
+          <div class="research-header">
+            <h3 class="research-title">{{ project.title }}</h3>
+            <span class="research-status" [class]="project.status === 'Completed' ? 'status-completed' : 'status-progress'">
+              {{ project.status }}
+            </span>
+          </div>
+          <p class="research-description">{{ project.description }}</p>
+          <div class="research-meta">
+            <div class="meta-item">
+              <i class="fas fa-tag"></i>
+              <span>{{ project.category }}</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-calendar"></i>
+              <span>{{ project.year }}</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-user"></i>
+              <span>{{ project.supervisor }}</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-university"></i>
+              <span>{{ project.institution }}</span>
+            </div>
+          </div>
+          <div class="research-actions">
+            <button class="btn btn-primary hover-glow" (click)="downloadPDF(project.pdf)">
+              <i class="fas fa-download me-2"></i>
+              Download PDF
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

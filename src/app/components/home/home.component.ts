@@ -9,8 +9,22 @@ import { gsap } from 'gsap';
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('nameText') nameText!: ElementRef;
-  @ViewChild('titleText') titleText!: ElementRef;
+  @ViewChild('typingText') typingText!: ElementRef;
   @ViewChild('profileCard') profileCard!: ElementRef;
+
+  typingRoles = [
+    'Full-Stack Developer',
+    'DSA Enthusiast', 
+    'Innovator',
+    'Problem Solver',
+    'Tech Explorer'
+  ];
+  currentRoleIndex = 0;
+  currentText = '';
+  isDeleting = false;
+  typingSpeed = 100;
+  deletingSpeed = 50;
+  pauseTime = 2000;
 
   stats = [
     { icon: 'fas fa-calendar-alt', number: '3+', label: 'Years of Learning' },
@@ -52,17 +66,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initAnimations();
+    this.startTypingAnimation();
   }
 
   private initAnimations(): void {
-    // Typing animation for name and title
+    // Typing animation for name
     setTimeout(() => {
       this.animationService.typeWriter(this.nameText.nativeElement, 'Raunak Kumar', 0.1);
     }, 1000);
-
-    setTimeout(() => {
-      this.animationService.typeWriter(this.titleText.nativeElement, 'Full-Stack Developer', 0.08);
-    }, 2500);
 
     // Profile card hover animation
     const profileCard = this.profileCard.nativeElement;
@@ -133,5 +144,38 @@ export class HomeComponent implements OnInit, AfterViewInit {
       duration: 0.3,
       ease: "power2.out"
     });
+  }
+
+  private startTypingAnimation(): void {
+    setTimeout(() => {
+      this.typeText();
+    }, 3000);
+  }
+
+  private typeText(): void {
+    const currentRole = this.typingRoles[this.currentRoleIndex];
+    
+    if (this.isDeleting) {
+      this.currentText = currentRole.substring(0, this.currentText.length - 1);
+    } else {
+      this.currentText = currentRole.substring(0, this.currentText.length + 1);
+    }
+
+    if (this.typingText) {
+      this.typingText.nativeElement.textContent = this.currentText;
+    }
+
+    let typeSpeed = this.isDeleting ? this.deletingSpeed : this.typingSpeed;
+
+    if (!this.isDeleting && this.currentText === currentRole) {
+      typeSpeed = this.pauseTime;
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.currentText === '') {
+      this.isDeleting = false;
+      this.currentRoleIndex = (this.currentRoleIndex + 1) % this.typingRoles.length;
+      typeSpeed = 500;
+    }
+
+    setTimeout(() => this.typeText(), typeSpeed);
   }
 }

@@ -11,17 +11,55 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="navbar-collapse" [class.show]="isNavbarOpen">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item" *ngFor="let item of navItems">
-          <a class="nav-link" 
-             [routerLink]="item.route" 
-             routerLinkActive="active"
-             (click)="closeNavbar()">
-            {{ item.label }}
-          </a>
-        </li>
-      </ul>
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" 
+         [class.show]="isNavbarOpen" 
+         (click)="closeNavbar()"></div>
+
+        <div class="navbar-collapse" 
+             [class.show]="isNavbarOpen" 
+             #navbarCollapse>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item" 
+                *ngFor="let item of navItems"
+                [class.dropdown]="item.hasDropdown">
+              
+              <!-- Regular nav link -->
+              <a *ngIf="!item.hasDropdown" 
+                 class="nav-link" 
+                 [routerLink]="item.route" 
+                 routerLinkActive="active"
+                 (click)="closeNavbar()">
+                {{ item.label }}
+              </a>
+              
+              <!-- Dropdown nav link -->
+              <a *ngIf="item.hasDropdown" 
+                 class="nav-link dropdown-toggle" 
+                 href="#" 
+                 role="button" 
+                 [attr.aria-expanded]="isDropdownOpen(item.label)"
+                 (click)="toggleDropdown(item.label, $event)">
+                {{ item.label }}
+                <i class="fas fa-chevron-down ms-1" 
+                   [class.rotated]="isDropdownOpen(item.label)"></i>
+              </a>
+              
+              <!-- Dropdown menu -->
+              <ul *ngIf="item.hasDropdown" 
+                  class="dropdown-menu"
+                  [class.show]="isDropdownOpen(item.label)">
+                <li *ngFor="let dropdownItem of item.dropdownItems">
+                  <a class="dropdown-item" 
+                     [routerLink]="dropdownItem.route"
+                     (click)="closeNavbar(); closeAllDropdowns()">
+                    <i class="fas fa-arrow-right me-2"></i>
+                    {{ dropdownItem.label }}
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
       
       <div class="theme-toggle ms-3">
         <button class="btn-theme-toggle" (click)="toggleTheme()">

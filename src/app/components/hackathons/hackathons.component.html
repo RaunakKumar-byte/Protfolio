@@ -1,0 +1,230 @@
+<!-- Hero Section -->
+<section class="hackathons-hero gradient-bg-1">
+  <div class="container">
+    <div class="row align-items-center min-vh-100">
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="hero-content">
+          <h1 class="hero-title gradient-text animate__animated animate__fadeInUp">
+            <i class="fas fa-trophy me-3"></i>
+            Hackathons & Competitions
+          </h1>
+          <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">
+            Showcasing my journey through competitive programming, hackathons, and technical challenges
+          </p>
+          <div class="hero-stats animate__animated animate__fadeInUp animate__delay-2s">
+            <div class="row">
+              <div class="col-6 col-md-3" *ngFor="let stat of stats">
+                <div class="stat-item glassmorphism hover-lift">
+                  <i [class]="stat.icon"></i>
+                  <h3>{{ stat.value }}</h3>
+                  <p>{{ stat.label }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="hero-image">
+          <div class="floating-trophy">
+            <i class="fas fa-trophy floating"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hackathons Section -->
+<section class="hackathons-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title text-center" data-aos="fade-up">
+          <i class="fas fa-code me-3"></i>
+          Hackathon Journey
+        </h2>
+        <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="200">
+          From local competitions to national-level hackathons
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 col-md-6 mb-4" *ngFor="let hackathon of hackathons; let i = index">
+        <div class="hackathon-card glassmorphism hover-lift" 
+             data-aos="fade-up" 
+             [attr.data-aos-delay]="i * 200">
+          <div class="card-header">
+            <div class="hackathon-logo">
+              <img [src]="hackathon.image" [alt]="hackathon.name" class="logo-img">
+            </div>
+            <div class="hackathon-info">
+              <h3 class="hackathon-name">{{ hackathon.name }}</h3>
+              <div class="hackathon-meta">
+                <span class="year">{{ hackathon.year }}</span>
+                <span class="badge" [class]="getStatusClass(hackathon.status)">
+                  {{ hackathon.status }}
+                </span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card-body">
+            <p class="hackathon-description">{{ hackathon.description }}</p>
+            
+            <div class="hackathon-details">
+              <div class="detail-item">
+                <i class="fas fa-users"></i>
+                <span>Team: {{ hackathon.teamSize }} members</span>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <span>Duration: {{ hackathon.duration }}</span>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-project-diagram"></i>
+                <span>Project: {{ hackathon.project }}</span>
+              </div>
+            </div>
+
+            <div class="technologies">
+              <span class="tech-tag" *ngFor="let tech of hackathon.technologies">
+                {{ tech }}
+              </span>
+            </div>
+
+            <div class="impact">
+              <h5><i class="fas fa-bullseye me-2"></i>Impact</h5>
+              <p>{{ hackathon.impact }}</p>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <button class="btn btn-primary hover-glow" 
+                    (click)="viewCertificate(hackathon.certificate)">
+              <i class="fas fa-certificate me-2"></i>
+              View Certificate
+            </button>
+            <button class="btn btn-outline-primary hover-glow">
+              <i class="fas fa-external-link-alt me-2"></i>
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Competitions Section -->
+<section class="competitions-section gradient-bg-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title text-center" data-aos="fade-up">
+          <i class="fas fa-medal me-3"></i>
+          Competitions & Certifications
+        </h2>
+        <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="200">
+          Technical competitions and skill validations
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 col-md-6 mb-4" *ngFor="let competition of competitions; let i = index">
+        <div class="competition-card glassmorphism hover-lift" 
+             data-aos="fade-up" 
+             [attr.data-aos-delay]="i * 200">
+          <div class="card-header">
+            <div class="competition-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <div class="competition-info">
+              <h3 class="competition-name">{{ competition.name }}</h3>
+              <div class="competition-meta">
+                <span class="platform">{{ competition.platform }}</span>
+                <span class="year">{{ competition.year }}</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card-body">
+            <p class="competition-description">{{ competition.description }}</p>
+            
+            <div class="competition-stats">
+              <div class="stat">
+                <span class="stat-label">Score</span>
+                <span class="stat-value">{{ competition.score }}</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Rank</span>
+                <span class="stat-value">{{ competition.rank }}</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Category</span>
+                <span class="stat-value" [class]="getCategoryClass(competition.category)">
+                  {{ competition.category }}
+                </span>
+              </div>
+            </div>
+
+            <div class="technologies">
+              <span class="tech-tag" *ngFor="let tech of competition.technologies">
+                {{ tech }}
+              </span>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <button class="btn btn-primary hover-glow" 
+                    (click)="viewCertificate(competition.certificate)">
+              <i class="fas fa-certificate me-2"></i>
+              View Certificate
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Achievement Timeline -->
+<section class="achievement-timeline">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title text-center" data-aos="fade-up">
+          <i class="fas fa-timeline me-3"></i>
+          Achievement Timeline
+        </h2>
+        <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="200">
+          My journey through competitions and achievements
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-container">
+      <div class="timeline-item" 
+           *ngFor="let hackathon of hackathons; let i = index"
+           data-aos="fade-up" 
+           [attr.data-aos-delay]="i * 300">
+        <div class="timeline-marker">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <div class="timeline-content glassmorphism">
+          <div class="timeline-date">{{ hackathon.year }}</div>
+          <h4>{{ hackathon.name }}</h4>
+          <p>{{ hackathon.description }}</p>
+          <div class="timeline-badges">
+            <span class="badge" [class]="getStatusClass(hackathon.status)">
+              {{ hackathon.status }}
+            </span>
+            <span class="badge badge-info">{{ hackathon.achievement }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

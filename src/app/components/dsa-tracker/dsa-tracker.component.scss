@@ -1,0 +1,558 @@
+.dsa-hero {
+  padding: 120px 0 80px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
+    background-size: cover;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+  }
+
+  .hero-stats {
+    .stat-card {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-radius: 15px;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+
+      i {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #ffd700;
+      }
+
+      h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: white;
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+
+    .circular-progress {
+      position: relative;
+      width: 300px;
+      height: 300px;
+
+      .progress-ring {
+        transform: rotate(-90deg);
+        width: 100%;
+        height: 100%;
+
+        .progress-ring-circle {
+          fill: transparent;
+          stroke: #ffd700;
+          stroke-width: 8;
+          stroke-linecap: round;
+          transition: stroke-dashoffset 2s ease-in-out;
+        }
+      }
+
+      .progress-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+
+        h2 {
+          font-size: 2.5rem;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        p {
+          font-size: 1.1rem;
+          opacity: 0.9;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+.leetcode-stats-section, .github-stats-section, .goals-achievements-section {
+  padding: 80px 0;
+  background-color: var(--bg-primary);
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .section-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+}
+
+.goals-achievements-section {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+
+  .section-title, .section-subtitle {
+    color: white;
+  }
+}
+
+.stats-card, .profile-card, .github-card, .languages-card, .goals-card, .achievements-card {
+  background: var(--bg-secondary);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+  height: 100%;
+
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+
+    i {
+      color: var(--primary-color);
+    }
+  }
+}
+
+.difficulty-stats {
+  .difficulty-item {
+    margin-bottom: 2rem;
+
+    .difficulty-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+
+      .difficulty-name {
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .difficulty-count {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+    }
+
+    .progress-container {
+      width: 100%;
+      height: 8px;
+      background: var(--bg-primary);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+
+      .progress-bar-custom {
+        height: 100%;
+        border-radius: 4px;
+        transition: width 2s ease-in-out;
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+          animation: shimmer 2s infinite;
+        }
+      }
+    }
+
+    .difficulty-percentage {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      text-align: right;
+    }
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.profile-card {
+  text-align: center;
+
+  .profile-header {
+    margin-bottom: 2rem;
+
+    .profile-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid var(--primary-color);
+    }
+
+    h4 {
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .rank {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+  }
+
+  .profile-stats {
+    margin-bottom: 2rem;
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+
+      i {
+        margin-right: 0.5rem;
+        color: var(--primary-color);
+        width: 20px;
+      }
+    }
+  }
+}
+
+.problems-list {
+  .problem-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+
+    .problem-info {
+      flex: 1;
+
+      .problem-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .problem-meta {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+
+        .badge {
+          padding: 0.3rem 0.8rem;
+          border-radius: 15px;
+          font-size: 0.8rem;
+          font-weight: 500;
+
+          &.badge-success {
+            background: #28a745;
+            color: white;
+          }
+
+          &.badge-warning {
+            background: #ffc107;
+            color: #212529;
+          }
+
+          &.badge-danger {
+            background: #dc3545;
+            color: white;
+          }
+        }
+
+        .acceptance, .language, .time-ago {
+          color: var(--text-secondary);
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .problem-status {
+      .status-badge {
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+
+        &.status-accepted {
+          background: #28a745;
+          color: white;
+        }
+
+        i {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+.github-card {
+  .github-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .github-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 1rem;
+      border: 2px solid var(--primary-color);
+    }
+
+    .github-info {
+      h4 {
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      p {
+        color: var(--text-secondary);
+        margin: 0;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .github-stats {
+    margin-bottom: 2rem;
+
+    .stat-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+
+      i {
+        margin-right: 0.75rem;
+        color: var(--primary-color);
+        width: 20px;
+      }
+    }
+  }
+}
+
+.languages-list {
+  .language-item {
+    margin-bottom: 1.5rem;
+
+    .language-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+
+      .language-name {
+        font-weight: 500;
+        color: var(--text-primary);
+      }
+
+      .language-percentage {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+    }
+
+    .progress-container {
+      width: 100%;
+      height: 6px;
+      background: var(--bg-primary);
+      border-radius: 3px;
+      overflow: hidden;
+
+      .progress-bar-custom {
+        height: 100%;
+        border-radius: 3px;
+        transition: width 2s ease-in-out;
+      }
+    }
+  }
+}
+
+.goals-list {
+  .goal-item {
+    margin-bottom: 2rem;
+
+    .goal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+
+      .goal-title {
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .goal-progress {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+    }
+
+    .progress-container {
+      width: 100%;
+      height: 8px;
+      background: var(--bg-primary);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+
+      .progress-bar-custom {
+        height: 100%;
+        border-radius: 4px;
+        transition: width 2s ease-in-out;
+      }
+    }
+
+    .goal-percentage {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      text-align: right;
+    }
+  }
+}
+
+.achievements-list {
+  .achievement-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: var(--bg-primary);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+
+    .achievement-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+
+      i {
+        font-size: 1.5rem;
+      }
+    }
+
+    .achievement-info {
+      flex: 1;
+
+      h5 {
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+        font-size: 1rem;
+      }
+
+      p {
+        color: var(--text-secondary);
+        margin-bottom: 0.25rem;
+        font-size: 0.9rem;
+      }
+
+      small {
+        color: var(--text-secondary);
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .dsa-hero {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-visual .circular-progress {
+      width: 250px;
+      height: 250px;
+    }
+  }
+
+  .problem-item {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .problem-status {
+      margin-top: 1rem;
+      align-self: flex-end;
+    }
+  }
+
+  .github-header {
+    flex-direction: column;
+    text-align: center;
+
+    .github-avatar {
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+  }
+}
