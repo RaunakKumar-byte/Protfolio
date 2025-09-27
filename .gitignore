@@ -172,3 +172,24 @@ firebase-debug.*.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Large files and folders
+*.zip
+*.rar
+*.7z
+*.tar.gz
+*.log
+*.tmp
+*.temp
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
