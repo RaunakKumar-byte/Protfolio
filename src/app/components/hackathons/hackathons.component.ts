@@ -136,7 +136,7 @@ export class HackathonsComponent implements OnInit {
       default: return 'category-default';
     }
   }
-
+//it my
   viewCertificate(certificatePath: string): void {
     // Open certificate in new tab
     window.open(certificatePath, '_blank');
