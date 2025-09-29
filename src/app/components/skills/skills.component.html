@@ -1,16 +1,16 @@
-<div class="skills-section">
+<div class="skills-section scroll-animate fade-up">
   <div class="container">
     <!-- Technical Skills Section -->
     <div class="row">
-      <div class="col-12">
-        <h2 class="section-title">Technical Skills</h2>
+      <div class="col-12 stagger-item">
+        <h2 class="section-title gradient-text-animated">Technical Skills</h2>
         <p class="section-subtitle">My technical expertise and proficiency levels</p>
       </div>
     </div>
     
     <div class="row">
-      <div class="col-lg-3 col-md-6 mb-4" *ngFor="let category of ['Web Development', 'Frontend', 'Backend', 'Database', 'Programming', 'AI/ML', 'Analytics', 'Automation', 'Soft Skills']">
-        <div class="skill-category-card">
+      <div class="col-lg-3 col-md-6 mb-4 stagger-item" *ngFor="let category of ['Web Development', 'Frontend', 'Backend', 'Database', 'Programming', 'AI/ML', 'Analytics', 'Automation', 'Soft Skills']">
+        <div class="skill-category-card hover-lift-enhanced hover-glow-enhanced">
           <h4 class="category-title">{{ category }}</h4>
           <div class="skills-list">
             <div class="skill-item" *ngFor="let skill of getSkillsByCategory(category)">
@@ -19,7 +19,7 @@
                 <span class="skill-percentage">{{ skill.level }}%</span>
               </div>
               <div class="skill-bar">
-                <div class="skill-progress" [style.width.%]="skill.level"></div>
+                <div class="skill-progress shimmer" [style.width.%]="skill.level"></div>
               </div>
             </div>
           </div>
@@ -29,15 +29,15 @@
 
     <!-- Certifications Section -->
     <div class="row mt-5">
-      <div class="col-12">
-        <h2 class="section-title">Certifications & Achievements</h2>
+      <div class="col-12 stagger-item">
+        <h2 class="section-title gradient-text-animated">Certifications & Achievements</h2>
         <p class="section-subtitle">Professional certifications and notable achievements</p>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-lg-6 col-md-6 mb-4" *ngFor="let cert of certifications">
-        <div class="certification-card">
+      <div class="col-lg-6 col-md-6 mb-4 stagger-item" *ngFor="let cert of certifications">
+        <div class="certification-card hover-lift-enhanced hover-glow-enhanced">
           <div class="cert-header">
             <h4 class="cert-title">{{ cert.title }}</h4>
             <span class="cert-issuer">{{ cert.issuer }}</span>
@@ -45,7 +45,7 @@
           </div>
           <p class="cert-description">{{ cert.description }}</p>
           <div class="cert-skills">
-            <span class="skill-tag" *ngFor="let skill of cert.skills">{{ skill }}</span>
+            <span class="skill-tag shimmer" *ngFor="let skill of cert.skills">{{ skill }}</span>
           </div>
           <div class="cert-credential">
             <small>Credential ID: {{ cert.credentialId }}</small>
@@ -56,20 +56,20 @@
 
     <!-- Achievements Section -->
     <div class="row mt-4">
-      <div class="col-12">
-        <h3 class="subsection-title">Notable Achievements</h3>
+      <div class="col-12 stagger-item">
+        <h3 class="subsection-title gradient-text-animated">Notable Achievements</h3>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-lg-4 col-md-6 mb-3" *ngFor="let achievement of achievements">
-        <div class="achievement-card">
+      <div class="col-lg-4 col-md-6 mb-3 stagger-item" *ngFor="let achievement of achievements">
+        <div class="achievement-card hover-lift-enhanced hover-glow-enhanced">
           <div class="achievement-header">
             <h5 class="achievement-title">{{ achievement.title }}</h5>
             <span class="achievement-year">{{ achievement.year }}</span>
           </div>
           <p class="achievement-description">{{ achievement.description }}</p>
-          <span class="achievement-category">{{ achievement.category }}</span>
+          <span class="achievement-category shimmer">{{ achievement.category }}</span>
         </div>
       </div>
     </div>
